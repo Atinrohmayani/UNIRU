@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import '/pages/edit_description.dart';
-import '/pages/edit_email.dart';
-import '/pages/edit_image.dart';
-import '/pages/edit_name.dart';
-import '/pages/edit_phone.dart';
+import '../pages/edit_description.dart';
+import '../pages/edit_email.dart';
+import '../pages/edit_image.dart';
+import '../pages/edit_name.dart';
+import '../pages/edit_phone.dart';
 import '../user/user.dart';
 import '../widgets/display_image_widget.dart';
 import '../user/user_data.dart';

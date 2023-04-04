@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '/data/user.dart';
-import '/widget/navigation_drawer_widget.dart';
+import '../data/user.dart';
+import '../widget/navigation_drawer_widget.dart';
 
 class HeaderPage extends StatelessWidget {
   @override

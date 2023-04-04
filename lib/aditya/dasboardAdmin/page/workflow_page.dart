@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/widget/navigation_drawer_widget.dart';
+import '../widget/navigation_drawer_widget.dart';
 
 class WorkflowPage extends StatelessWidget {
   @override

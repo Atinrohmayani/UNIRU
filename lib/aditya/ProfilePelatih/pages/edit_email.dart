@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '/user/user_data.dart';
-import '/widgets/appbar_widget.dart';
+import '../user/user_data.dart';
+import '../widgets/appbar_widget.dart';
 import 'package:email_validator/email_validator.dart';
 
 // This class handles the Page to edit the Email Section of the User Profile.
