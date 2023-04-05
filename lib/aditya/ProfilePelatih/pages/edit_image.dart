@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import '/user/user_data.dart';
+import '../user/user_data.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
-import '/widgets/appbar_widget.dart';
+import '../widgets/appbar_widget.dart';
 import 'package:image_picker/image_picker.dart';
 
 class EditImagePage extends StatefulWidget {

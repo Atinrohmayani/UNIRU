@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import '/model/navigation_item.dart';
-import '/page/favourites_page.dart';
-import '/page/notifications_page.dart';
-import '/page/people_page.dart';
-import '/page/header_page.dart';
-import '/page/plugins_page.dart';
-import '/page/updates_page.dart';
-import '/page/workflow_page.dart';
-import '/provider/navigation_provider.dart';
+import './model/navigation_item.dart';
+import './page/favourites_page.dart';
+import './page/notifications_page.dart';
+import './page/people_page.dart';
+import './page/header_page.dart';
+import './page/plugins_page.dart';
+import './page/updates_page.dart';
+import './page/workflow_page.dart';
+import './provider/navigation_provider.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
