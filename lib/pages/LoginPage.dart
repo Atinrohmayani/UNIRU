@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:uniru_proyek/pages/register.dart';
-import './pages/register.dart';
-import './pages/UiPage.dart';
+import 'register.dart';
+import 'UiPage.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:BackgroundScreen(),
+      home: BackgroundScreen(),
     );
   }
 }
@@ -54,7 +50,6 @@ class _BackgroundScreenState extends State<BackgroundScreen> {
           ),
         ),
         child: ListView(
-          
           padding: EdgeInsets.all(20),
           children: [
             TextField(
@@ -106,8 +101,9 @@ class _BackgroundScreenState extends State<BackgroundScreen> {
             SizedBox(height: 300),
             ElevatedButton(
               onPressed: () {
-                 Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => UiPage(),));
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => UiPage(),
+                ));
               },
               child: Text("LOGIN"),
               style: ElevatedButton.styleFrom(
@@ -115,43 +111,33 @@ class _BackgroundScreenState extends State<BackgroundScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
-        
                   )),
             ),
-         ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => Register(),));
-          },
-            child:
-                 
-           
-            RichText(
-              
-              text: TextSpan(
-                text: "Belum Daftar? ",
-
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-                
-                     
-                children: [
-                  
-             
-                  TextSpan(
-                    
-                    text: "Daftar disini",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 187, 139, 6),
-                      fontWeight: FontWeight.bold,
-                    ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Register(),
+                ));
+              },
+              child: RichText(
+                text: TextSpan(
+                  text: "Belum Daftar? ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
+                  children: [
+                    TextSpan(
+                      text: "Daftar disini",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 187, 139, 6),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-         ),
           ],
         ),
       ),
