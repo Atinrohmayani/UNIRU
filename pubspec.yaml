@@ -44,6 +44,9 @@ dependencies:
   path_provider: ^2.0.13
   image_picker: ^0.8.7
   string_validator: ^1.0.0
+  firebase_core: ^2.13.0
+  firebase_auth: ^4.6.1
+  cloud_firestore: ^4.7.1
 
 dev_dependencies:
   flutter_test:
