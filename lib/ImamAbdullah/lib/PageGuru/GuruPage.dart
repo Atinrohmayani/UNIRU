@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:uniru_app/PageGuru/KategoriPage.dart';
-import 'package:uniru_app/PageGuru/PageHomeGuru.dart';
-import 'package:uniru_app/PageGuru/ProfilPage.dart';
-import 'package:uniru_app/PageGuru/SertifikatPage.dart';
+import 'KategoriPage.dart';
+import 'PageHomeGuru.dart';
+import 'ProfilPage.dart';
+import 'SertifikatPage.dart';
 
 class GuruPage extends StatefulWidget {
   @override
