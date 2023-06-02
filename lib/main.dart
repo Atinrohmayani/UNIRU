@@ -1,30 +1,44 @@
-// ignore_for_file: unused_import
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'pages/GuestHomePage.dart';
-import 'pages/HomePage.dart';
+// ignore_for_file: prefer_const_constructors
 
-Future<void> main() async {
+import 'package:testting/data/custom_user.dart';
+import 'package:testting/screens/HomePage.dart';
+import 'package:testting/services/auth.dart';
+import 'package:testting/services/updatealldata.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+
+void main() async {
+  // initializing firebase
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(UniruApp());
+
+  await updateAllData();
+
+  // running home Widget
+  return runApp(Home());
 }
 
-class UniruApp extends StatelessWidget {
+// it just returns basic settings for MaterialApp
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Uniru',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomePage(),
-    );
+    // Stream provider for constantly getting the user data
+    return StreamProvider<CustomUser?>.value(
+
+      // value is the stream method declared in "services.auth.dart"
+        value: AuthService().streamUser,
+        initialData: null,
+
+        // MaterialApp
+        child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: HomePage()));
   }
 }
+
 
 class Guru {
   final String name;
@@ -45,3 +59,5 @@ final List<Guru> guruList = [
   Guru('Guru 9', 'Bidang 9'),
   Guru('Guru 10', 'Bidang 10'),
 ];
+
+
