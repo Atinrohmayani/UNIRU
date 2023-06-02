@@ -1,8 +1,8 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:testting/data/announcements.dart';
-import 'package:testting/screens/teacher_classroom/announcement_page.dart';
+import '/data/announcements.dart';
+import '/screens/teacher_classroom/announcement_page.dart';
 
 class CommentComposer extends StatefulWidget {
   String className;

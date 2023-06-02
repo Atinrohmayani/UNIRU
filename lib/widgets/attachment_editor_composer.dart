@@ -1,9 +1,9 @@
 // ignore_for_file: must_be_immutable, unnecessary_set_literal
 
 import 'package:flutter/material.dart';
-import 'package:testting/data/custom_user.dart';
-import 'package:testting/services/attachments_db.dart';
-import 'package:testting/services/submissions_db.dart';
+import '/data/custom_user.dart';
+import '/services/attachments_db.dart';
+import '/services/submissions_db.dart';
 import 'package:provider/provider.dart';
 
 import 'package:url_launcher/url_launcher.dart';
