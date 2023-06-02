@@ -1,13 +1,12 @@
 // ignore_for_file: unused_field, unused_local_variable
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'pelatih.dart';
 import 'register.dart';
 import 'guru.dart';
-
-
 
 class LoginPage extends StatefulWidget {
   @override
@@ -29,16 +28,23 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: <Widget>[
             Container(
-              color: Color.fromARGB(255, 248, 181, 136),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 248, 181, 136),
+                image: DecorationImage(
+                  image: AssetImage("images/HAI.png"),
+                  fit: BoxFit.cover,
+                  repeat: ImageRepeat.noRepeat,
+                ),
+              ),
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.70,
+              height: MediaQuery.of(context).size.height,
               child: Center(
                 child: Container(
                   margin: EdgeInsets.all(12),
                   child: Form(
                     key: _formkey,
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
@@ -48,22 +54,23 @@ class _LoginPageState extends State<LoginPage> {
                           "Login",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: Colors.grey,
                             fontSize: 40,
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 350,
                         ),
                         TextFormField(
                           controller: emailController,
                           decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.mail),
                             filled: true,
                             fillColor: Colors.white,
                             hintText: 'Email',
                             enabled: true,
                             contentPadding: const EdgeInsets.only(
-                                left: 14.0, bottom: 8.0, top: 8.0),
+                                left: 14.0, bottom: 8.0, top: 15.0),
                             focusedBorder: OutlineInputBorder(
                               borderSide: new BorderSide(color: Colors.white),
                               borderRadius: new BorderRadius.circular(10),
@@ -97,6 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                           controller: passwordController,
                           obscureText: _isObscure3,
                           decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.key),
                             suffixIcon: IconButton(
                                 icon: Icon(_isObscure3
                                     ? Icons.visibility
@@ -137,7 +145,6 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           keyboardType: TextInputType.emailAddress,
                         ),
-                       
                         SizedBox(
                           height: 20,
                         ),
@@ -163,7 +170,35 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.white,
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 30,
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            text: "Belum Daftar? ",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            children: [
+                              TextSpan(
+                                  text: "Daftar disini",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Color.fromARGB(255, 187, 139, 6),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Register(),
+                                        ),
+                                      );
+                                    }),
+                            ],
+                          ),
                         ),
                         Visibility(
                             maintainSize: true,
@@ -180,52 +215,49 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Container(
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20.0),
-                        ),
-                      ),
-                      elevation: 5.0,
-                      height: 40,
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Register(),
-                          ),
-                        );
-                      },
-                      color: Colors.blue[900],
-                      child: Text(
-                        "Register Now",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  
-                   
-                    SizedBox(
-                      height: 5,
-                    ),
-               
-                  ],
-                ),
-              ),
-            ),
+            // Container(
+            //   color: Colors.white,
+            //   width: MediaQuery.of(context).size.width,
+            //   child: Center(
+            //     child: Column(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       crossAxisAlignment: CrossAxisAlignment.center,
+            //       children: [
+            //         SizedBox(
+            //           height: 20,
+            //         ),
+            //         MaterialButton(
+            //           shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.all(
+            //               Radius.circular(20.0),
+            //             ),
+            //           ),
+            //           elevation: 5.0,
+            //           height: 40,
+            //           onPressed: () {
+            //             Navigator.pushReplacement(
+            //               context,
+            //               MaterialPageRoute(
+            //                 builder: (context) => Register(),
+            //               ),
+            //             );
+            //           },
+            //           color: Colors.blue[900],
+            //           child: Text(
+            //             "Register Now",
+            //             style: TextStyle(
+            //               color: Colors.white,
+            //               fontSize: 20,
+            //             ),
+            //           ),
+            //         ),
+            //         SizedBox(
+            //           height: 5,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -235,25 +267,25 @@ class _LoginPageState extends State<LoginPage> {
   void route() {
     User? user = FirebaseAuth.instance.currentUser;
     var kk = FirebaseFirestore.instance
-            .collection('users')
-            .doc(user!.uid)
-            .get()
-            .then((DocumentSnapshot documentSnapshot) {
+        .collection('users')
+        .doc(user!.uid)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
       if (documentSnapshot.exists) {
         if (documentSnapshot.get('rool') == "Pelatih") {
-           Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>  TeacherHomePage(),
-          ),
-        );
-        }else{
           Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>  UiPage(),
-          ),
-        );
+            context,
+            MaterialPageRoute(
+              builder: (context) => TeacherHomePage(),
+            ),
+          );
+        } else {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => UiPage(),
+            ),
+          );
         }
       } else {
         print('Document does not exist on the database');
@@ -280,6 +312,3 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 }
-
-
-
