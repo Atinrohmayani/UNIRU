@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 // ignore_for_file: prefer_const_constructors
 
-import 'package:testting/data/custom_user.dart';
-import 'package:testting/screens/HomePage.dart';
-import 'package:testting/services/auth.dart';
-import 'package:testting/services/updatealldata.dart';
+import '/data/custom_user.dart';
+import '/screens/HomePage.dart';
+import '/services/auth.dart';
+import '/services/updatealldata.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 
