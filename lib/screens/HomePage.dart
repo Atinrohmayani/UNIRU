@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 180, 152),
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Image.asset(
-              'Assets/Images/HAI.png',
+              'Assets/Images/guru/LogoUniru.png',
               width: 150,
               height: 150,
             ),

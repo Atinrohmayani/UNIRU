@@ -42,22 +42,36 @@ class Home extends StatelessWidget {
 
 class Guru {
   final String name;
-  final String field;
+  final String matpel;
+  final String imagePath;
+  final String description;
 
-  Guru(this.name, this.field);
+  Guru(this.name, this.matpel, this.imagePath, this.description);
 }
 
 final List<Guru> guruList = [
-  Guru('Guru 1', 'Bidang 1'),
-  Guru('Guru 2', 'Bidang 2'),
-  Guru('Guru 3', 'Bidang 3'),
-  Guru('Guru 4', 'Bidang 4'),
-  Guru('Guru 5', 'Bidang 5'),
-  Guru('Guru 6', 'Bidang 6'),
-  Guru('Guru 7', 'Bidang 7'),
-  Guru('Guru 8', 'Bidang 8'),
-  Guru('Guru 9', 'Bidang 9'),
-  Guru('Guru 10', 'Bidang 10'),
+  Guru('Guru 1', 'Matpel 1', 'Assets/Images/guru/test.jpg', 'deskripsi'),
+  Guru('Guru 2', 'Matpel 2', 'Assets/Images/guru/guru2.png', 'deskripsi guru...'),
+  Guru('Guru 3', 'Matpel 3', 'Assets/Images/guru/guru3.png', 'deskripsi guru...'),
+  Guru('Guru 4', 'Matpel 4', 'Assets/Images/guru/guru4.png', 'deskripsi guru...'),
+  Guru('Guru 5', 'Matpel 5', 'Assets/Images/guru/guru5.png', 'deskripsi guru...'),
+  Guru('Guru 6', 'Matpel 6', 'Assets/Images/guru/guru6.png', 'deskripsi guru...'),
+  Guru('Guru 7', 'Matpel 7', 'Assets/Images/guru/guru7.png', 'deskripsi guru...'),
+  Guru('Guru 8', 'Matpel 8', 'Assets/Images/guru/guru8.png', 'deskripsi guru...'),
+  Guru('Guru 9', 'Matpel 9', 'Assets/Images/guru/guru9.png', 'deskripsi guru...'),
+  Guru('Guru 10', 'Matpel 10', 'Assets/Images/guru/guru10.png', 'deskripsi guru...'),
 ];
 
-
+final List<String> kategori = [
+  'Kategori 1',
+  'Kategori 2',
+  'Kategori 3',
+  'Kategori 4',
+  'Kategori 5',
+  'Kategori 6',
+  'Kategori 7',
+  'Kategori 8',
+  'Kategori 9',
+  'Kategori 10',
+  // Tambahkan mata pelajaran lainnya jika diperlukan
+];
