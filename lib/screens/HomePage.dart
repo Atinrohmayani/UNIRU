@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:uniru_proyek/screens/testtambahguru.dart';
 import 'GuestHomePage.dart';
 import 'SearchPage.dart';
 import '../main.dart';
@@ -42,6 +43,22 @@ class HomePage extends StatelessWidget {
                 children: [
                   SizedBox(width: 8),
                   Text('Masuk'),
+                ],
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Aksi ketika tombol "Masuk" ditekan
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => testtambahguru()),
+                );
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(width: 8),
+                  Text('test tambah guru'),
                 ],
               ),
             ),
