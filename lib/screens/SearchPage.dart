@@ -1,5 +1,3 @@
-// ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
 import '../main.dart';
 import 'GuestHomePage.dart';
@@ -35,92 +33,116 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey, // Menyimpan kunci scaffold
-      appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => GuestHomePage()),
-            );
-          },
-          child: Center(
-            child: Text(
-              'CANCEL',
-              style: TextStyle(
-                fontSize: 10,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-        title: TextField(
-          decoration: InputDecoration(
-            hintText: 'Cari guru...',
-          ),
-          onSubmitted: searchGuru,
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.filter_list),
-            onPressed: () {
-              _handleDrawer(); // Memanggil fungsi untuk menampilkan/hide drawer
-            },
-          ),
-        ],
-      ),
       drawer: _buildDrawer(), // Memanggil fungsi untuk membangun drawer
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1.0,
-            crossAxisSpacing: 10.0,
-            mainAxisSpacing: 10.0,
-          ),
-          itemCount: searchResults.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                _showGuruDetailPopup(context, searchResults[index]);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(255, 143, 102, 255),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      searchResults[index].imagePath,
-                      width: double.infinity,
-                      height: 100,
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      searchResults[index].name,
+      body: Column(
+        children: [
+          SizedBox(height: 50),
+          Container(
+            padding: EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              color: Colors.lightBlue,
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+            ),
+            child: Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => GuestHomePage()),
+                    );
+                  },
+                  child: Center(
+                    child: Text(
+                      'CANCEL',
                       style: TextStyle(
+                        fontSize: 10,
                         color: Colors.white,
-                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      searchResults[index].description,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Cari guru...',
+                        border: InputBorder.none,
+                      ),
+                      onSubmitted: searchGuru,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.filter_list),
+                  color: Colors.white,
+                  onPressed: () {
+                    _handleDrawer();
+                  },
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1.0,
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 10.0,
+                ),
+                itemCount: searchResults.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      _showGuruDetailPopup(context, searchResults[index]);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Color.fromARGB(255, 143, 102, 255),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            searchResults[index].imagePath,
+                            width: double.infinity,
+                            height: 100,
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            searchResults[index].name,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            searchResults[index].description,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  );
+                },
               ),
-            );
-          },
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }
